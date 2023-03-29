@@ -25,13 +25,13 @@ public class App {
 			long t0 = System.nanoTime();
 			Sorter.sortList(copyList);
 			long t1 = System.nanoTime();
-			double  tTot= (t1 - t0) / 1000000.0;
-			String str = String.valueOf(tTot); 
-			fw.write(i + ", " + str + "\r\n");
+			double  time1= (t1 - t0) / 1000000.0; //Miljoner nanosekunder? Millisekund?
+			String str = String.valueOf(time1); 
+			fw.write(i + "," + str + "\r\n");
 			
 		}
 		scan.close();
 		fw.close();
-		System.out.println("Program ran successfully!");
+		System.out.println("Java ran successfully!");
     }   
 }
