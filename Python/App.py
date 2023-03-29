@@ -17,19 +17,20 @@ def main():
    
     
     copy = []
-    for i in range(len(data)):
-        ints = data[i]
-        copy.append(ints)
+    def dataToCopy(copy):
+        for i in range(len(data)):
+            ints = data[i]
+            copy.append(ints)
 
     for i in range(10):
-        print(copy)
+        dataToCopy(copy)
         t0 = time.time_ns()
         sortList(copy)
         t1 = time.time_ns()
-        time1 = t1 - t0
-        print(copy)
+        time1 = (t1 - t0) / 1000000 #Miljoner nanosekunder? Millisekund?
         file1.write(str(i + 1) + "," + str(time1) + "\n")
+        copy = []
     
-
+    print("Python ran successfully!")
 if __name__ == "__main__":
     main()
