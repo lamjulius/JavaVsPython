@@ -1,15 +1,15 @@
-plotresult <- function(file, start = 1) {   
-   data <- read.csv(file)
-   data <- data[start:nrow(data),]
-   plot(data, type = 'l')
-}
-command <- "java test.testa data2.txt utfil.txt 600"
-command2 <- "java -Xint test.testa data1.txt utfil.txt 600"
-system(command2)
-plotresult("utfil.txt")
-pdf("result_JIT.pdf")
-plotresult("utfil.txt")
-dev.off()
+#plotresult <- function(file, start = 1) {   
+#   data <- read.csv(file)
+#   data <- data[start:nrow(data),]
+#   plot(data, type = 'l')
+#}
+#command <- "java sort.App data1.txt utfil.txt 600"
+#command2 <- "java -Xint test.testa data1.txt utfil.txt 600"
+#system(command2)
+#plotresult("utfil.txt")
+#pdf("result_JIT.pdf")
+#plotresult("utfil.txt")
+#dev.off()
 #mean_arr <- numeric(10);
 #for (i in 1:10) {
   #system(command) 
@@ -21,4 +21,17 @@ dev.off()
 #supermean <- mean(mean_arr)
 #conf <- confidenceInterval(mean_arr, confidenceLevel = 0.95)
 
+# function for plotting data
+plotresult <- function(file, start = 1) {   
+   data <- read.csv(file)
+   data <- data[start:nrow(data),]
+   plot(data, type = 'l')
+}
 
+#Runs Java program
+system("java -cp bin sort.App Common/data1.txt Java/javaresult.txt 600")
+
+plotresult("Java/javaresult.txt") # plot to screen
+pdf("Java/javaresult.pdf")
+plotresult("Java/javaresult.txt") # plot to pdf file
+dev.off()

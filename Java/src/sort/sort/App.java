@@ -8,9 +8,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws Exception {
-        Scanner scan = new Scanner(new File("Common/data1.txt"));
-        Writer fw = new FileWriter("Java/javaresult.txt");
+    public static void main(String args[]) throws Exception {
+        Scanner scan = new Scanner(new File(args[0]));
+        Writer fw = new FileWriter(args[1]);
+		
+		//n-gånger att köra
+		int n = Integer.parseInt(args[2]) + 1;
 
         ArrayList<Integer> list = new ArrayList<>();
 
@@ -20,7 +23,7 @@ public class App {
         }
 
         	
-		for(int i = 1; i < 11; i++) {
+		for(int i = 1; i < n; i++) {
 			ArrayList copyList = (ArrayList<Integer>) list.clone();
 			long t0 = System.nanoTime();
 			Sorter.sortList(copyList);
