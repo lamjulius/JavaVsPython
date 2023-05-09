@@ -31,7 +31,7 @@ def main():
             ints = data[i]
             copy.append(ints)
     
-    for i in range(10):
+    for i in range(600):
         dataToCopy(copy)
         t0 = time.time_ns()
         sortList(copy)
