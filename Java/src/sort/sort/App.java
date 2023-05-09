@@ -26,8 +26,8 @@ public class App {
 		for(int i = 1; i < n; i++) {
 			ArrayList copyList = (ArrayList<Integer>) list.clone();
 			long t0 = System.nanoTime();
-			Sorter.sortList(copyList);
-			//Pi.piEstimate();
+			//Sorter.sortList(copyList);
+			Pi.piEstimate();
 			long t1 = System.nanoTime();
 			double  time1= (t1 - t0) / 1000000.0; //Miljoner nanosekunder? Millisekund?
 			String str = String.valueOf(time1); 

@@ -14,14 +14,14 @@ def piEstimate():
     pi = 4 * sum(1 / i for i in range(1 - 2*n, 2*n + 1, 4))
 
 def main():
-    with open("Common/data1.txt", "r") as file:
+    with open("Common/data2.txt", "r") as file:
         data = file.read().split()
         data = [int(d) for d in data]
     
-    file1 = open("Python/pyresult.txt","a")
+    file1 = open("Python/pyresultpi.txt","a")
     
     #Clears file each run
-    with open("Python/pyresult.txt",'w') as file:
+    with open("Python/pyresultpi.txt",'w') as file:
         pass
     
     #Create a copy of data
@@ -31,11 +31,11 @@ def main():
             ints = data[i]
             copy.append(ints)
     
-    for i in range(600):
+    for i in range(5):
         dataToCopy(copy)
         t0 = time.time_ns()
-        sortList(copy)
-        #piEstimate()
+        #sortList(copy)
+        piEstimate()
         t1 = time.time_ns()
         time1 = (t1 - t0) / 1000000 #Miljoner nanosekunder? Millisekund?
         file1.write(str(i + 1) + "," + str(time1) + "\n")
