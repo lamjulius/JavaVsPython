@@ -8,6 +8,5 @@ public class Pi {
             pi += 1.0 / i;
         }
         pi *= 4;
-
     }
 }
